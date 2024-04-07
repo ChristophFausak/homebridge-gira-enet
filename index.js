@@ -590,8 +590,8 @@ function setBrightness(brightness, callback) {
   if(brightness > 0) this.realOn = true;
   else if(brightness == 0) this.realOn = false;
 
-  if (this.brightnessCallback) this.callback.call(new Error("uncalled callback!"));
-  this.brightnessCallback = callback;
+//  if (this.brightnessCallback) this.callback.call(new Error("uncalled callback!"));
+//  this.brightnessCallback = callback;
 
   this.gateway.setValueDim(this.context.channel, brightness, function(err, res) {
       if (err) {
@@ -606,3 +606,4 @@ function setBrightness(brightness, callback) {
       }
   }.bind(this));
 }
+
