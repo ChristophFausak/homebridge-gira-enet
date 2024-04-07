@@ -63,11 +63,13 @@ function gateway(config, log) {
                 // Check for channel messages
                 // {"PROTOCOL":"0.03","TIMESTAMP":"08154711","CMD":"ITEM_UPDATE_IND","VALUES":[{"NUMBER":"16","VALUE":"1","STATE":"ON","SETPOINT":"255"}]}
                 if (json && (json.CMD == "ITEM_UPDATE_IND") && Array.isArray(json.VALUES)) {
-                    var acknowledgeMsg = [];//Noch zu erzeugen: Ein Timer der die Nachrichten etwas verlangsamt!
+                    var acknowledgeMsg = []; //Noch zu erzeugen: Ein Timer der die Nachrichten etwas verlangsamt!
 		    json.VALUES.forEach(function(obj) {
                         if (obj.NUMBER){
 			    	acknowledgeMsg.push({"NUMBER":obj.NUMBER.toString(),"STATE":obj.STATE.toString()});
 				this.emit('UpdateAvailable',obj);
+				var msg = `{"CMD":"ITEM_VALUE_RES","PROTOCOL":"0.03","TIMESTAMP":"${Math.floor(Date.now()/1000)}","VALUES":[{"NUMBER":${obj.NUMBER},"STATE":"${obj.STATE}"}]}\r\n\r\n`;
+                            this.client.write(msg)
 			}
                     }.bind(this));
 		    if (acknowledgeMsg != []){
