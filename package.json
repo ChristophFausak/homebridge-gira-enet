@@ -1,6 +1,6 @@
 {
   "name": "homebridge-gira-enet",
-  "version": "0.7.3",
+  "version": "0.7.4",
   "description": "Gira/Jung eNet plugin for homebridge: https://github.com/nfarina/homebridge",
   "license": "MIT",
   "keywords": [
@@ -11,11 +11,11 @@
     "homebridge": ">=0.2.0"
   },
   "author": {
-    "name": "Christoph Fausak, JulianBX & Lev Levin"
+    "name": "Christoph Fausak, JulianBX, Lev Levin & Bas Maaks"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/levlevin/homebridge-gira-enet.git"
+    "url": "https://github.com/basmaaks/homebridge-gira-enet.git"
   },
   "dependencies": {
   }
