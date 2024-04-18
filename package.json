@@ -37,7 +37,7 @@
   "homepage": "https://github.com/basmaaks/homebridge-gira-enet#README.md",
   "repository": {
     "type": "git",
-    "url": "https:////github.com/basmaaks/homebridge-gira-enet.git"
+    "url": "git+https://github.com/basmaaks/homebridge-gira-enet.git"
   },
   "dependencies": {
   }
