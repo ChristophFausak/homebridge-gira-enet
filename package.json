@@ -1,4 +1,5 @@
 {
+  "displayName": "Homebridge Gira / Jung ip gateway",
   "name": "homebridge-gira-enet",
   "version": "0.7.4",
   "description": "Gira/Jung eNet plugin for homebridge: https://github.com/basmaaks/homebridge-gira-enet",
@@ -8,7 +9,26 @@
     "url": "https://github.com/basmaaks"
   },
   "keywords": [
-    "homebridge-plugin"
+    "home-automation",
+    "home automation",
+    "apple",
+    "homebridge",
+    "homebridge-plugin",
+    "homebridge plugin",
+    "homekit",
+    "homekit-accessory",
+    "homekit accessory",
+    "homewizard",
+    "apple-homekit",
+    "apple homekit",
+    "homebridge-plugins",
+    "homebridge plugins",
+    "homewizard-energy",
+    "homewizard energy",
+    "homewizard-energy-socket",
+    "homewizard energy socket",
+    "apple-home",
+    "apple home"
   ],
   "engines": {
     "node": ">=0.12.0",
