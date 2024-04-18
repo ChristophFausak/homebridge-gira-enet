@@ -11,7 +11,7 @@
     "homebridge": ">=0.2.0"
   },
   "author": {
-    "name": "Christoph Fausak, JulianBX, Lev Levin & Bas Maaks"
+    "name": "Bas Maaks"
   },
   "repository": {
     "type": "git",
