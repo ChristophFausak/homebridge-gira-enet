@@ -3,7 +3,9 @@
 This package has been forked after Julian's has disappeared from NPM Registry
 
 # Changes:
- ### v0.7.4
+ ### v0.7.6
+ spped up dimming lightbulb, now the lightbulb reacts at instance
+ ### v0.7.5
  Improved speed bij disable 5 times feedback from gateway
  ### v0.7.3
  Integrated eNet-api. Improved debug logging.
