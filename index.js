@@ -568,42 +568,21 @@ function getBrightness(callback) {
 }
 
 function setBrightness(brightness, callback) {
-  if (!this.gateway) {
-    this.log.warn("eNet device not ready.");
-    callback(new Error("eNet device not ready."));
-    return;
-  }
-  if (!this.context.dimmable) {
-    this.log.warn("eNet device not dimmable.");
-    callback(new Error("eNet device not dimmable."));
-    return;
-  }
-
-  if (this.brightness == brightness) {
-	  callback(null);
-	  return;
-  }
-
   this.log.info("setBrightness " + this.context.name + ": " + brightness);
+  callback(null);
 
   this.brightness = brightness;
   if(brightness > 0) this.realOn = true;
   else if(brightness == 0) this.realOn = false;
-
-//  if (this.brightnessCallback) this.callback.call(new Error("uncalled callback!"));
-//  this.brightnessCallback = callback;
-
   this.gateway.setValueDim(this.context.channel, brightness, function(err, res) {
       if (err) {
-        this.log.warn("Error setting " + this.context.name + " to " + this.brightness + ": " + err);
-        if (this.brightnessCallback) {
-            this.brightnessCallback.call(err);
-            this.brightnessCallback = null;
-        }
+          this.log.warn("Error setting " + this.context.name + " to " + this.brightness + ": " + err);
+          //callback(err);
       }
       else {
           this.log.info("Succeeded setting " + this.context.name + " to " + this.brightness + " : " + JSON.stringify(res));
+
+          //callback(null);
       }
   }.bind(this));
 }
-
