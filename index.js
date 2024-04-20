@@ -206,8 +206,7 @@ eNetPlatform.prototype.setupDevices = function() {
                         if(acc.realOn != newValue) {
                             this.log.info("Changing light " + acc.context.name + " state " + (acc.realOn?"ON":"OFF") + " -> " + (newValue?"ON":"OFF"));
                             acc.realOn = newValue;
-//                            service.getCharacteristic(Characteristic.On).updateValue(newValue);
-			if(service.getCharacteristic(Characteristic.On).value != newValue) service.getCharacteristic(Characteristic.On).updateValue(newValue);
+                            service.getCharacteristic(Characteristic.On).updateValue(newValue);
 
                             if (acc.callback) {
                                 this.log.debug("calling callback...");
