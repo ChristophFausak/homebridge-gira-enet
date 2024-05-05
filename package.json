@@ -4,7 +4,6 @@
   "version": "0.7.6",
   "description": "Gira/Jung eNet plugin for homebridge: https://github.com/basmaaks/homebridge-gira-enet",
   "license": "MIT",
-  "private": "false",
   "author": {
     "name": "Bas Maaks",
     "url": "https://github.com/basmaaks"
