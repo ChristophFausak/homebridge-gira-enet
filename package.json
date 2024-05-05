@@ -1,6 +1,6 @@
 {
   "displayName": "Homebridge Jung / Gira ip gateway",
-  "name": "homebridge-enet-gateway",
+  "name": "homebridge-2-enet",
   "version": "0.7.6",
   "description": "Gira/Jung eNet plugin for homebridge: https://github.com/basmaaks/homebridge-gira-enet",
   "license": "MIT",
@@ -34,10 +34,10 @@
     "node": ">=0.12.0",
     "homebridge": ">=0.2.0"
   },
-  "homepage": "https://github.com/basmaaks/homebridge-gira-enet#README.md",
+  "homepage": "https://github.com/basmaaks/homebridge-2-enet#README.md",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/basmaaks/homebridge-gira-enet.git"
+    "url": "git+https://github.com/basmaaks/homebridge-2-enet.git"
   },
   "dependencies": {
   }
