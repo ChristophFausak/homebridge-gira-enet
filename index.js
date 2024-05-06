@@ -11,7 +11,7 @@ module.exports = function (homebridge) {
     Accessory = homebridge.platformAccessory;
     UUIDGen = homebridge.hap.uuid;
 
-    homebridge.registerPlatform("homebridge-eNet", "eNetPlatform", eNetPlatform); //, true);
+    homebridge.registerPlatform("homebridge-2-eNet", "eNetPlatform", eNetPlatform); //, true);
 }
 
 
