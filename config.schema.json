@@ -1,107 +1,102 @@
 {
-  "pluginAlias": "eNetPlatform",
-  "pluginType": "platform",
-  "singular": true,
-  "headerDisplay": "plugin to connect to your Gira/Jung - Enet IP Gateway",
-  "footerDisplay": "@Bas Maaks",
-  "schema": {
-    "type": "object",
-    "additionalProperties": false,
-    "properties": {
-      "platform": {},
-      "name": {
-        "description": "Plugin name as displayed in the Homebridge log.",
-        "type": "string",
-        "required": true,
-        "default": "RPi"
-      },
-      "schema": {
+    "pluginAlias": "eNetPlatform",
+    "pluginType": "platform",
+    "singular": true,
+    "headerDisplay": "plugin to connect to your Gira/Jung - Enet IP Gateway",
+    "footerDisplay": "@Bas Maaks",
+    "schema": {
         "type": "object",
+        "additionalProperties": false,
         "properties": {
-          "name": {
-            "type": "string",
-            "title": "Gateway",
-            "required": true
-          },
-          "autodiscover": {
-            "title": "autodiscover gateways",
-            "type": "string",
-            "required": true,
-            "enum": [
-              "true",
-              "false"
-            ]
-          },
-          "gateways": {
-            "title": "Gateways",
-            "type": "array",
-            "items": {
-              "title": "Gateway",
-              "type": "object",
-              "properties": {
-                "name": {
-                  "title": "Name for the gateway",
-                  "type": "string",
-                  "required": true
-                },
-                "host": {
-                  "title": "hostname from the gateway",
-                  "type": "string",
-                  "format": "hostname",
-                  "required": true
-                },
-                "mac": {
-                  "title": "mac adres gateway",
-                  "type": "string",
-                  "required": true
-                },
-                "accessories": {
-                  "title": "channels",
-                  "type": "array",
-                  "items": {
-                    "title": "Channel",
+            "platform": {
+                "description": "Plugin name",
+                "type": "string",
+                "required": true,
+                "default": "eNetPlatform"
+            },
+            "name": {
+                "description": "Plugin name",
+                "type": "string",
+                "required": true,
+                "default": "homebridge-2-enet"
+            },
+            "autodiscover": {
+                "title": "autodiscover gateways",
+                "type": "string",
+                "required": true,
+                "enum": [
+                    "true",
+                    "false"
+                ]
+            },
+            "gateways": {
+                "title": "Gateways",
+                "type": "array",
+                "items": {
+                    "title": "Gateway",
                     "type": "object",
                     "properties": {
-                      "number": {
-                        "title": "Number for the cannel in the Ip Gateway",
-                        "type": "number",
-                        "required": true
-                      },
-                      "name": {
-                        "title": "Name as it appears in Homebridge",
-                        "type": "string",
-                        "required": true
-                      },
-                      "type": {
-                        "title": "Type of accessory.",
-                        "type": "string",
-                        "required": true,
-                        "enum": [
-                          "light",
-                          "switch",
-                          "shutter"
-                        ]
-                      },
-                      "duration": {
-                        "title": "Duration, only for light and switches",
-                        "type": "string"
-                      },
-                      "dimmable": {
-                        "title": "dimmable, only for light",
-                        "type": "string",
-                        "enum": [
-                          "true",
-                          "false"
-                        ]
-                      }
+                        "name": {
+                            "title": "Name for the gateway",
+                            "type": "string",
+                            "required": true
+                        },
+                        "host": {
+                            "title": "hostname from the gateway",
+                            "type": "string",
+                            "format": "hostname",
+                            "required": true
+                        },
+                        "mac": {
+                            "title": "mac adres gateway",
+                            "type": "string",
+                            "required": true
+                        },
+                        "accessories": {
+                            "title": "channels",
+                            "type": "array",
+                            "items": {
+                                "title": "Channel",
+                                "type": "object",
+                                "properties": {
+                                    "number": {
+                                        "title": "Number for the cannel in the Ip Gateway",
+                                        "type": "number",
+                                        "required": true
+                                    },
+                                    "name": {
+                                        "title": "Name as it appears in Homebridge",
+                                        "type": "string",
+                                        "required": true
+                                    },
+                                    "type": {
+                                        "title": "Type of accessory.",
+                                        "type": "string",
+                                        "required": true,
+                                        "enum": [
+                                            "light",
+                                            "switch",
+                                            "shutter"
+                                        ]
+                                    },
+                                    "duration": {
+                                        "title": "Duration, only for light and switches",
+                                        "type": "string"
+                                    },
+                                    "dimmable": {
+                                        "title": "dimmable, only for light",
+                                        "type": "string",
+                                        "enum": [
+                                            "true",
+                                            "false"
+                                        ]
+                                    }
+                                }
+                            }
+                        }
                     }
-                  }
                 }
-              }
             }
-          }
         }
-      }
     }
-  }
 }
