@@ -1,7 +1,7 @@
 {
   "displayName": "Homebridge Jung / Gira ip gateway",
   "name": "homebridge-2-enet",
-  "version": "0.7.6",
+  "version": "0.8.0",
   "description": "Gira/Jung eNet plugin for homebridge: https://github.com/basmaaks/homebridge-2-enet",
   "license": "MIT",
   "author": {
