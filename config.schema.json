@@ -17,7 +17,7 @@
             "autodiscover": {
                 "title": "Autodiscover gateways",
                 "type": "string",
-                "description": "autodiscover is optional. If set to false, no broadcast discovery takes place, all gateways need to have the host property set. Default is to autodiscover gateways using broadcasts.",
+                "description": "Autodiscover is optional. If set to false, no broadcast discovery takes place, all gateways need to have the host property set. Default is to autodiscover gateways using broadcasts.",
                 "required": true,
                 "enum": [
                     "true",
@@ -33,20 +33,20 @@
                         "name": {
                             "title": "Name for the gateway",
                             "type": "string",
-                            "description": "identify gateway by its name. You can set this name with the Jung/Gira eNet app. Factory default is Mobile Gate",
+                            "description": "Identify gateway by its name. You can set this name with the Jung/Gira eNet app. Factory default is Mobile Gate.",
                             "required": true
                         },
                         "mac": {
                             "title": "mac adres gateway",
                             "type": "string",
-                            "description": "you can specify the mac-address of the gateway, e.g. by running sampe-discovery.js from the homebridge-enet package",
+                            "description": "You can specify the mac-address of the gateway, e.g. by running sampe-discovery.js from the homebridge-enet package.",
                             "required": true
                         },
                         "host": {
                             "title": "Hostname from the gateway",
                             "type": "string",
                             "format": "hostname",
-                            "description": "if you provide a hostname or ip address that is the identification for the gateway",
+                            "description": "If you provide a hostname or ip address that is the identification for the gateway.",
                             "required": true
                         },
                         "accessories": {
@@ -57,12 +57,12 @@
                                 "type": "object",
                                 "properties": {
                                     "channel": {
-                                        "title": "NThe eNet channel assigned to the accessory",
+                                        "title": "The eNet channel assigned to the accessory.",
                                         "type": "number",
                                         "required": true
                                     },
                                     "name": {
-                                        "title": "The HomeKit name of the accessory",
+                                        "title": "The HomeKit name of the accessory.",
                                         "type": "string",
                                         "required": true
                                     },
@@ -76,19 +76,19 @@
                                             "Shutter"
                                         ]
                                     },
-                                    "duration": {
-                                        "title": "Duration, only for light and switches",
-                                        "description": "optional When the accessory is switched on, it will be automatically switched off after duration seconds. Only for Switch and Light accessories",
-                                        "type": "string"
-                                    },
                                     "dimmable": {
-                                        "title": "dimmable, only for light",
+                                        "title": "Dimmable, only for light.",
                                         "type": "string",
-                                        "description":"optional Only for Light accessories",
+                                        "description":"Optional only for Light accessories.",
                                         "enum": [
                                             "true",
                                             "false"
                                         ]
+                                    },
+                                    "duration": {
+                                        "title": "Duration, only for light and switches accessories.",
+                                        "description": "Optional When the accessory is switched on, it will be automatically switched off after duration seconds. Only for Switch and Light accessories.",
+                                        "type": "string"
                                     }
                                 }
                             }
