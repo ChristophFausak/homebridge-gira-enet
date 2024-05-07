@@ -17,6 +17,7 @@
             "autodiscover": {
                 "title": "Autodiscover gateways",
                 "type": "string",
+                "description": "autodiscover is optional. If set to false, no broadcast discovery takes place, all gateways need to have the "host" property set. Default is to autodiscover gateways using broadcasts."
                 "required": true,
                 "enum": [
                     "true",
