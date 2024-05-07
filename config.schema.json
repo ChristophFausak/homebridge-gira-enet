@@ -33,17 +33,20 @@
                         "name": {
                             "title": "Name for the gateway",
                             "type": "string",
+                            "description": "identify gateway by its name. You can set this name with the Jung/Gira eNet app. Factory default is Mobile Gate",
                             "required": true
                         },
                         "mac": {
                             "title": "mac adres gateway",
                             "type": "string",
+                            "description": "you can specify the mac-address of the gateway, e.g. by running sampe-discovery.js from the homebridge-enet package",
                             "required": true
                         },
                         "host": {
                             "title": "Hostname from the gateway",
                             "type": "string",
                             "format": "hostname",
+                            "description": "if you provide a hostname or ip address that is the identification for the gateway",
                             "required": true
                         },
                         "accessories": {
@@ -54,12 +57,12 @@
                                 "type": "object",
                                 "properties": {
                                     "channel": {
-                                        "title": "Number for the cannel in the Ip Gateway",
+                                        "title": "NThe eNet channel assigned to the accessory",
                                         "type": "number",
                                         "required": true
                                     },
                                     "name": {
-                                        "title": "Name as it appears in Homebridge",
+                                        "title": "The HomeKit name of the accessory",
                                         "type": "string",
                                         "required": true
                                     },
@@ -75,11 +78,13 @@
                                     },
                                     "duration": {
                                         "title": "Duration, only for light and switches",
+                                        "description": "optional When the accessory is switched on, it will be automatically switched off after duration seconds. Only for Switch and Light accessories",
                                         "type": "string"
                                     },
                                     "dimmable": {
                                         "title": "dimmable, only for light",
                                         "type": "string",
+                                        "description":"optional Only for Light accessories",
                                         "enum": [
                                             "true",
                                             "false"
