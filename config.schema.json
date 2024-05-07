@@ -34,15 +34,15 @@
                             "type": "string",
                             "required": true
                         },
+                        "mac": {
+                            "title": "mac adres gateway",
+                            "type": "string",
+                            "required": true
+                        },
                         "host": {
                             "title": "Hostname from the gateway",
                             "type": "string",
                             "format": "hostname",
-                            "required": true
-                        },
-                        "mac": {
-                            "title": "mac adres gateway",
-                            "type": "string",
                             "required": true
                         },
                         "accessories": {
@@ -52,7 +52,7 @@
                                 "title": "Channel",
                                 "type": "object",
                                 "properties": {
-                                    "number": {
+                                    "channel": {
                                         "title": "Number for the cannel in the Ip Gateway",
                                         "type": "number",
                                         "required": true
