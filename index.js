@@ -161,7 +161,7 @@ eNetPlatform.prototype.setupDevices = function() {
         }
     }
 
-    if (this.delAccessories.length) this.api.unregisterPlatformAccessories("homebridge-eNet", "eNetPlatform", this.delAccessories);
+    if (this.delAccessories.length) this.api.unregisterPlatformAccessories("homebridge-2-eNet", "eNetPlatform", this.delAccessories);
     this.delAccessories = [];
     this.accessories = keep;
 
@@ -357,7 +357,7 @@ eNetPlatform.prototype.createAccessory = function(gate, conf) {
         accessory.reachable = true;
         accessory.gateway = gate;
         this.accessories.push(accessory);
-        this.api.registerPlatformAccessories("homebridge-eNet", "eNetPlatform", [accessory]);
+        this.api.registerPlatformAccessories("homebridge-2-eNet", "eNetPlatform", [accessory]);
     }
 }
 
