@@ -8,13 +8,6 @@
         "type": "object",
         "additionalProperties": false,
         "properties": {
-            "platform": {},
-            "platform": {
-                "description": "Plugin name",
-                "type": "string",
-                "required": true,
-                "default": "eNetPlatform"
-            },
             "name": {
                 "description": "Plugin name",
                 "type": "string",
@@ -22,7 +15,7 @@
                 "default": "homebridge-2-enet"
             },
             "autodiscover": {
-                "title": "autodiscover gateways",
+                "title": "Autodiscover gateways",
                 "type": "string",
                 "required": true,
                 "enum": [
@@ -31,7 +24,6 @@
                 ]
             },
             "gateways": {
-                "title": "Gateways",
                 "type": "array",
                 "items": {
                     "title": "Gateway",
@@ -43,7 +35,7 @@
                             "required": true
                         },
                         "host": {
-                            "title": "hostname from the gateway",
+                            "title": "Hostname from the gateway",
                             "type": "string",
                             "format": "hostname",
                             "required": true
@@ -54,7 +46,7 @@
                             "required": true
                         },
                         "accessories": {
-                            "title": "channels",
+                            "title": "Channels",
                             "type": "array",
                             "items": {
                                 "title": "Channel",
