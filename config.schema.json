@@ -67,9 +67,9 @@
                                         "type": "string",
                                         "required": true,
                                         "enum": [
-                                            "light",
-                                            "switch",
-                                            "shutter"
+                                            "Light",
+                                            "Switch",
+                                            "Shutter"
                                         ]
                                     },
                                     "duration": {
