@@ -3,8 +3,10 @@
 This package has been forked after Julian's has disappeared from NPM Registry
 
 # Changes:
+ ### v0.8.0
+ Added config screen in homebridge, no needed to modify the config.json bij hand.
  ### v0.7.6
- spped up dimming lightbulb, now the lightbulb reacts at instance
+ speed up dimming lightbulb, now the lightbulb reacts at instance
  ### v0.7.5
  Improved speed bij disable 5 times feedback from gateway
  ### v0.7.3
@@ -41,49 +43,11 @@ Or you use the sampe-gateway.js from the homebridge-enet package to read the con
 
 1. Install homebridge using: `npm install -g homebridge`
 2. Install this plugin using: `npm install -g https://github.com/basmaaks/homebridge-2-enet`
-3. Update your configuration file. See the sample below.
+3. or use `git clone git://github.com/basmaaks/homebridge-2-enet.git`
+4. Update the settings using homebrdige.
 
 # Configuration
-
-Configuration sample:
-
- ```javascript
-
-     "platforms": [
-         {
-             "platform": "eNetPlatform",
-             "name": "eNet",
-             "autodiscover": true,
-             "gateways": [{
-                 "name": "Mobile Gate",
-                 "mac": null,
-                 "host": null,
-                 "accessories": [
-                     {
-                         "channel": 16,
-                         "name": "Kitchen",
-                         "type": "Shutter"
-                     },
-                     {
-                         "channel": 17,
-                         "name": "Toaster",
-                         "type": "Switch",
-                         "duration": 120
-                     },
-                     {
-                         "channel": 18,
-                         "name": "Main Light",
-                         "type": "Light",
-                         "dimmable": true
-                     }
-                 ]
-             }]
-         }
-     ]
- }
-
- ```
-
+Just use the homebridge settings.
 
 `autodiscover` is **optional**. If set to false, no broadcast discovery takes place, all gateways need to have the "host" property set. Default is to autodiscover gateways using broadcasts.
 
