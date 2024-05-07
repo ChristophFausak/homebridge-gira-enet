@@ -8,6 +8,7 @@
         "type": "object",
         "additionalProperties": false,
         "properties": {
+            "platform": {},
             "platform": {
                 "description": "Plugin name",
                 "type": "string",
