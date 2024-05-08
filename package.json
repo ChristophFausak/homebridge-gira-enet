@@ -1,5 +1,5 @@
 {
-"displayName": "Homebridge-2-eNet",
+  "displayName": "Homebridge-2-eNet",
   "name": "homebridge-2-enet",
   "version": "0.8.0",
   "description": "Expsose the eNet ip gateway so the asseccories are vissible in Apple Homekit",
@@ -15,7 +15,7 @@
     "node": "^18.17.0 || ^20.9.0",
     "homebridge": "^1.6.0"
   },
-"keywords": [
+  "keywords": [
     "eNet",
     "Jung",
     "Gira",
@@ -23,5 +23,11 @@
   ],
   "devDependencies": {
     "homebridge": "^1.8.0"
-  }
+  },
+  "homepage": "https://github.com/basmaaks/homebridge-2-enet#readme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bas Maaks"
 }
