@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/basmaaks/homebridge-2-enet.git"
+    "url": "git://github.com/basmaaks/homebridge-2-enet.git"
   },
   "bugs": {
     "url": "https://github.com/basmaaks/homebridge-2-enet/issues"
