@@ -268,8 +268,6 @@ eNetPlatform.prototype.setupDevices = function() {
                         if ((targetPos < 0) || (targetPos > 100)) targetPos = acc.targetPosition;
 
                         if (obje.STATE === "OFF") targetPos = position;
-                        //else if ((position > acc.position) && (targetPos < position)) targetPos = 100;
-                        //else if ((position < acc.position) && (targetPos > position)) targetPos = 0;
 
                         if (acc.targetPosition != targetPos) {
                             this.log.info("Changing shutter " + acc.context.name + " target position " + acc.targetPosition + " -> " + targetPos);
@@ -396,9 +394,6 @@ eNetPlatform.prototype.setupAccessory = function(accessory) {
           .on('get', getTargetPosition.bind(accessory))
           .on('set', setTargetPosition.bind(accessory));
 
-        // Characteristic.PositionState.DECREASING = 0;
-        // Characteristic.PositionState.INCREASING = 1;
-        // Characteristic.PositionState.STOPPED = 2;
         accessory.positionState = Characteristic.PositionState.STOPPED;
 
         service.setCharacteristic(Characteristic.PositionState, accessory.positionState);
@@ -431,11 +426,6 @@ eNetPlatform.prototype.setupAccessory = function(accessory) {
 
     return true;
 }
-
-////////////////////////////////////////////////////////////////////////////////
-//
-//  Accessory notifications
-//
 
 function getPositionState(callback) {
   if (this.initialized) {
@@ -495,9 +485,6 @@ function setTargetPosition(position, callback) {
       }
       else {
           this.log.info("Succeeded setting " + this.context.name + " to " + this.position + " : " + JSON.stringify(res));
-          // this.getService(Service.Window).setCharacteristic(Characteristic.CurrentPosition, this.position);
-
-          //callback(null);
       }
   }.bind(this));
 }
