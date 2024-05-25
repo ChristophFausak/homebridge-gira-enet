@@ -12,7 +12,8 @@
                 "description": "Plugin name",
                 "type": "string",
                 "required": true,
-                "default": "homebridge-2-enet"
+                "default": "homebridge-2-enet",
+                "description":"Plugin name as displayed in the Homebridge log."
             },
             "autodiscover": {
                 "title": "Autodiscover gateways",
@@ -77,18 +78,18 @@
                                         ]
                                     },
                                     "dimmable": {
-                                        "title": "Dimmable, only for light.",
-                                        "type": "string",
-                                        "description":"Optional only for Light accessories.",
-                                        "enum": [
-                                            "true",
-                                            "false"
-                                        ]
+                                        "title": "Dimmable, set true if the actor has a dimming function",
+                                        "type": "boolean",
+                                        "condition": {
+                                            "functionBody": "return (model.gateways[arrayIndices[0]].accessories[arrayIndices[1]].type) === 'Light';"
+                                        }
                                     },
                                     "duration": {
-                                        "title": "Duration, only for light and switches accessories.",
-                                        "description": "Optional When the accessory is switched on, it will be automatically switched off after duration seconds. Only for Switch and Light accessories.",
-                                        "type": "string"
+                                        "title": "Duration in minutes when the actor switch off (optional).",
+                                        "type": "string",
+                                        "condition": {
+                                            "functionBody": "return (model.gateways[arrayIndices[0]].accessories[arrayIndices[1]].type) === 'Light' || (model.gateways[arrayIndices[0]].accessories[arrayIndices[1]].type) === 'Switch';"
+                                        }
                                     }
                                 }
                             }
