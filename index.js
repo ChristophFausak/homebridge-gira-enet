@@ -131,7 +131,7 @@ eNetPlatform.prototype.setupDevices = function() {
             else this.log.warn("Gateway has no accessories: " + JSON.stringify(gw));
         }
     }
-    else this.log.warn("No gateways defined: " + JSOM.stringify(this.config));
+    else this.log.warn("No gateways defined: " + JSON.stringify(this.config));
 
     var keep = [];
     for (var i = 0; i < this.accessories.length; ++i) {
