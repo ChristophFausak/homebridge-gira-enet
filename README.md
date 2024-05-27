@@ -13,6 +13,8 @@ This release (1.0.0) was made possible bij them.
 This plugin can communicate with Jung/Gira Mobile Gateways and their provisioned devices. Currently, the whole setup needs to be done with the respective Jung/Gira eNet app. Then you need to get the channels for your devices. You might guess them - first used channel is 16. Or you use the sampe-gateway.js from the homebridge-enet package to read the config of your gateway.
 
 Version history :
+v1.0.1
+Just a little fix, made a typo in index.js
 
 v1.0.0
 Clean up the code, rewrite of the readme and modified the config screen.
