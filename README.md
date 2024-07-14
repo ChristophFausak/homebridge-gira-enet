@@ -1,3 +1,6 @@
+[![verified-by-homebridge](https://badgen.net/badge/homebridge/verified/purple)](https://github.com/homebridge/homebridge/wiki/Verified-Plugins)
+
+
 Homebridge to eNet from jung/gira.
 
 Now its possible to switch your switches / shutters and lights within homekit with feedback.
