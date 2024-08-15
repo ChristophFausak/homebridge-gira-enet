@@ -1,22 +1,33 @@
 {
-  "name": "homebridge-gira-enet",
-  "version": "0.7.3",
-  "description": "Gira/Jung eNet plugin for homebridge: https://github.com/nfarina/homebridge",
+  "displayName": "Homebridge 2 eNet",
+  "name": "homebridge-2-enet",
+  "version": "1.0.1",
+  "description": "Expsose the eNet ip gateway so the asseccories are vissible in Apple Homekit",
   "license": "MIT",
-  "keywords": [
-    "homebridge-plugin"
-  ],
-  "engines": {
-    "node": ">=0.12.0",
-    "homebridge": ">=0.2.0"
-  },
-  "author": {
-    "name": "Christoph Fausak, JulianBX & Lev Levin"
-  },
   "repository": {
     "type": "git",
-    "url": "git://github.com/levlevin/homebridge-gira-enet.git"
+    "url": "https://github.com/basmaaks/homebridge-2-enet.git"
   },
-  "dependencies": {
-  }
+  "bugs": {
+    "url": "https://github.com/basmaaks/homebridge-2-enet/issues"
+  },
+  "engines": {
+    "homebridge": "^1.6.0 || ^2.0.0-beta.0",
+    "node": "^18.20.4 || ^20.15.1"
+  },
+  "keywords": [
+    "eNet",
+    "Jung",
+    "Gira",
+    "homebridge-plugin"
+  ],
+  "devDependencies": {
+    "homebridge": "^1.8.0"
+  },
+  "homepage": "https://github.com/basmaaks/homebridge-2-enet#readme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bas Maaks"
 }

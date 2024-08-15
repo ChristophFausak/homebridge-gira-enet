@@ -11,7 +11,7 @@ module.exports = function (homebridge) {
     Accessory = homebridge.platformAccessory;
     UUIDGen = homebridge.hap.uuid;
 
-    homebridge.registerPlatform("homebridge-eNet", "eNetPlatform", eNetPlatform); //, true);
+    homebridge.registerPlatform("homebridge-2-eNet", "eNetPlatform", eNetPlatform); //, true);
 }
 
 
@@ -131,7 +131,7 @@ eNetPlatform.prototype.setupDevices = function() {
             else this.log.warn("Gateway has no accessories: " + JSON.stringify(gw));
         }
     }
-    else this.log.warn("No gateways defined: " + JSOM.stringify(this.config));
+    else this.log.warn("No gateways defined: " + JSON.stringify(this.config));
 
     var keep = [];
     for (var i = 0; i < this.accessories.length; ++i) {
@@ -161,7 +161,7 @@ eNetPlatform.prototype.setupDevices = function() {
         }
     }
 
-    if (this.delAccessories.length) this.api.unregisterPlatformAccessories("homebridge-eNet", "eNetPlatform", this.delAccessories);
+    if (this.delAccessories.length) this.api.unregisterPlatformAccessories("homebridge-2-eNet", "eNetPlatform", this.delAccessories);
     this.delAccessories = [];
     this.accessories = keep;
 
@@ -268,8 +268,6 @@ eNetPlatform.prototype.setupDevices = function() {
                         if ((targetPos < 0) || (targetPos > 100)) targetPos = acc.targetPosition;
 
                         if (obje.STATE === "OFF") targetPos = position;
-                        //else if ((position > acc.position) && (targetPos < position)) targetPos = 100;
-                        //else if ((position < acc.position) && (targetPos > position)) targetPos = 0;
 
                         if (acc.targetPosition != targetPos) {
                             this.log.info("Changing shutter " + acc.context.name + " target position " + acc.targetPosition + " -> " + targetPos);
@@ -357,7 +355,7 @@ eNetPlatform.prototype.createAccessory = function(gate, conf) {
         accessory.reachable = true;
         accessory.gateway = gate;
         this.accessories.push(accessory);
-        this.api.registerPlatformAccessories("homebridge-eNet", "eNetPlatform", [accessory]);
+        this.api.registerPlatformAccessories("homebridge-2-eNet", "eNetPlatform", [accessory]);
     }
 }
 
@@ -396,9 +394,6 @@ eNetPlatform.prototype.setupAccessory = function(accessory) {
           .on('get', getTargetPosition.bind(accessory))
           .on('set', setTargetPosition.bind(accessory));
 
-        // Characteristic.PositionState.DECREASING = 0;
-        // Characteristic.PositionState.INCREASING = 1;
-        // Characteristic.PositionState.STOPPED = 2;
         accessory.positionState = Characteristic.PositionState.STOPPED;
 
         service.setCharacteristic(Characteristic.PositionState, accessory.positionState);
@@ -431,11 +426,6 @@ eNetPlatform.prototype.setupAccessory = function(accessory) {
 
     return true;
 }
-
-////////////////////////////////////////////////////////////////////////////////
-//
-//  Accessory notifications
-//
 
 function getPositionState(callback) {
   if (this.initialized) {
@@ -495,9 +485,6 @@ function setTargetPosition(position, callback) {
       }
       else {
           this.log.info("Succeeded setting " + this.context.name + " to " + this.position + " : " + JSON.stringify(res));
-          // this.getService(Service.Window).setCharacteristic(Characteristic.CurrentPosition, this.position);
-
-          //callback(null);
       }
   }.bind(this));
 }
@@ -568,41 +555,21 @@ function getBrightness(callback) {
 }
 
 function setBrightness(brightness, callback) {
-  if (!this.gateway) {
-    this.log.warn("eNet device not ready.");
-    callback(new Error("eNet device not ready."));
-    return;
-  }
-  if (!this.context.dimmable) {
-    this.log.warn("eNet device not dimmable.");
-    callback(new Error("eNet device not dimmable."));
-    return;
-  }
-
-  if (this.brightness == brightness) {
-	  callback(null);
-	  return;
-  }
-
   this.log.info("setBrightness " + this.context.name + ": " + brightness);
+  callback(null);
 
   this.brightness = brightness;
   if(brightness > 0) this.realOn = true;
   else if(brightness == 0) this.realOn = false;
-
-  if (this.brightnessCallback) this.callback.call(new Error("uncalled callback!"));
-  this.brightnessCallback = callback;
-
   this.gateway.setValueDim(this.context.channel, brightness, function(err, res) {
       if (err) {
-        this.log.warn("Error setting " + this.context.name + " to " + this.brightness + ": " + err);
-        if (this.brightnessCallback) {
-            this.brightnessCallback.call(err);
-            this.brightnessCallback = null;
-        }
+          this.log.warn("Error setting " + this.context.name + " to " + this.brightness + ": " + err);
+          //callback(err);
       }
       else {
           this.log.info("Succeeded setting " + this.context.name + " to " + this.brightness + " : " + JSON.stringify(res));
+
+          //callback(null);
       }
   }.bind(this));
 }

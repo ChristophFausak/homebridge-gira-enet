@@ -35,20 +35,8 @@ discover.prototype.discover = function(callback) {
         var n = msg.length;
 
         if (n < 15) {
-            // console.log(`message too small. ${msg.length}`);
             return;
         }
-
-        // Gate response:
-        // message size n
-        // 1 byte unknown
-        // 2 bytes LE == 65199
-        // 4 bytes IP
-        // n-15 bytes Name
-        // 6 bytes Mac-Address
-        // 1 byte DeviceState
-        // 1 byte Manufacturer
-        // 1 byte unknown
 
         var macaddress = byteToHex(msg.readUInt8(msg.length-8)) + ':' + byteToHex(msg.readUInt8(msg.length-7)) + ':' + byteToHex(msg.readUInt8(msg.length-6)) + ':' +
             byteToHex(msg.readUInt8(msg.length-5)) + ':' + byteToHex(msg.readUInt8(msg.length-4)) + ':' + byteToHex(msg.readUInt8(msg.length-3));

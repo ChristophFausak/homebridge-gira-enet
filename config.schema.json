@@ -1,0 +1,102 @@
+{
+    "pluginAlias": "eNetPlatform",
+    "pluginType": "platform",
+    "singular": true,
+    "headerDisplay": "plugin to connect to your Gira/Jung - Enet IP Gateway",
+    "footerDisplay": "@Bas Maaks",
+    "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "name": {
+                "description": "Plugin name",
+                "type": "string",
+                "required": true,
+                "default": "homebridge-2-enet",
+                "description":"Plugin name as displayed in the Homebridge log."
+            },
+            "autodiscover": {
+                "title": "Autodiscover gateways",
+                "type": "string",
+                "description": "Autodiscover is optional. If set to false, no broadcast discovery takes place, all gateways need to have the host property set. Default is to autodiscover gateways using broadcasts.",
+                "required": true,
+                "enum": [
+                    "true",
+                    "false"
+                ]
+            },
+            "gateways": {
+                "type": "array",
+                "items": {
+                    "title": "Gateway",
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "title": "Name for the gateway",
+                            "type": "string",
+                            "description": "Identify gateway by its name. You can set this name with the Jung/Gira eNet app. Factory default is Mobile Gate.",
+                            "required": true
+                        },
+                        "mac": {
+                            "title": "mac adres gateway",
+                            "type": "string",
+                            "description": "You can specify the mac-address of the gateway, e.g. by running sampe-discovery.js from the homebridge-enet package.",
+                            "required": true
+                        },
+                        "host": {
+                            "title": "Hostname from the gateway",
+                            "type": "string",
+                            "format": "hostname",
+                            "description": "If you provide a hostname or ip address that is the identification for the gateway.",
+                            "required": true
+                        },
+                        "accessories": {
+                            "title": "Channels",
+                            "type": "array",
+                            "items": {
+                                "title": "Channel",
+                                "type": "object",
+                                "properties": {
+                                    "channel": {
+                                        "title": "The eNet channel assigned to the accessory.",
+                                        "type": "number",
+                                        "required": true
+                                    },
+                                    "name": {
+                                        "title": "The HomeKit name of the accessory.",
+                                        "type": "string",
+                                        "required": true
+                                    },
+                                    "type": {
+                                        "title": "Type of accessory.",
+                                        "type": "string",
+                                        "required": true,
+                                        "enum": [
+                                            "Light",
+                                            "Switch",
+                                            "Shutter"
+                                        ]
+                                    },
+                                    "dimmable": {
+                                        "title": "Dimmable, set true if the actor has a dimming function",
+                                        "type": "boolean",
+                                        "condition": {
+                                            "functionBody": "return (model.gateways[arrayIndices[0]].accessories[arrayIndices[1]].type) === 'Light';"
+                                        }
+                                    },
+                                    "duration": {
+                                        "title": "Duration in minutes when the actor switch off (optional).",
+                                        "type": "string",
+                                        "condition": {
+                                            "functionBody": "return (model.gateways[arrayIndices[0]].accessories[arrayIndices[1]].type) === 'Light' || (model.gateways[arrayIndices[0]].accessories[arrayIndices[1]].type) === 'Switch';"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
