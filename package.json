@@ -1,7 +1,7 @@
 {
   "displayName": "Homebridge 2 eNet",
   "name": "homebridge-2-enet",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Expsose the eNet ip gateway so the asseccories are vissible in Apple Homekit",
   "license": "MIT",
   "repository": {
